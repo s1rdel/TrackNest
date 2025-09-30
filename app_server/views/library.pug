@@ -1,0 +1,45 @@
+extends layout
+
+block content
+  .d-flex.justify-content-between.align-items-center.mb-3
+    h1.mb-0 My Library
+    button.btn.btn-primary(type="button") + Add item
+
+  .row.mb-3
+    .col-md-8
+      input.form-control(type="text" placeholder="Search by artist, album or track (mock)")
+    .col-md-4
+      select.form-select
+        option(value="all" selected) All
+        option(value="track") Tracks
+        option(value="album") Albums
+        option(value="artist") Artists
+  .row
+    .col-md-6.col-lg-4
+      .card
+        .card-body
+          h5.card-title Blinding Lights
+          h6.card-subtitle.mb-2.text-muted The Weeknd — Track
+          p.card-text Rating: ★★★★☆
+          p.card-text Note: Great vibe for coding
+          a.card-link(href="#") Edit
+          a.card-link(href="#") Delete
+    .col-md-6.col-lg-4
+      .card
+        .card-body
+          h5.card-title Numb
+          h6.card-subtitle.mb-2.text-muted Linkin Park — Track
+          p.card-text Rating: ★★★★★
+          p.card-text Note: Classic
+          a.card-link(href="#") Edit
+          a.card-link(href="#") Delete
+    .col-md-6.col-lg-4
+      .card
+        .card-body
+          h5.card-title After Hours
+          h6.card-subtitle.mb-2.text-muted The Weeknd — Album (2020)
+          p.card-text Rating: ★★★★☆
+          p.card-text Note: Mood album
+          a.card-link(href="#") Edit
+          a.card-link(href="#") Delete
+
