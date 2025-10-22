@@ -15,31 +15,15 @@ block content
         option(value="album") Albums
         option(value="artist") Artists
   .row
-    .col-md-6.col-lg-4
-      .card
-        .card-body
-          h5.card-title Blinding Lights
-          h6.card-subtitle.mb-2.text-muted The Weeknd — Track
-          p.card-text Rating: ★★★★☆
-          p.card-text Note: Great vibe for coding
-          a.card-link(href="#") Edit
-          a.card-link(href="#") Delete
-    .col-md-6.col-lg-4
-      .card
-        .card-body
-          h5.card-title Numb
-          h6.card-subtitle.mb-2.text-muted Linkin Park — Track
-          p.card-text Rating: ★★★★★
-          p.card-text Note: Classic
-          a.card-link(href="#") Edit
-          a.card-link(href="#") Delete
-    .col-md-6.col-lg-4
-      .card
-        .card-body
-          h5.card-title After Hours
-          h6.card-subtitle.mb-2.text-muted The Weeknd — Album (2020)
-          p.card-text Rating: ★★★★☆
-          p.card-text Note: Mood album
-          a.card-link(href="#") Edit
-          a.card-link(href="#") Delete
+    each it in items
+      .col-md-6.col-lg-4
+        .card
+          .card-body
+            h5.card-title= it.title
+            h6.card-subtitle.mb-2.text-muted #{it.artist} — #{it.type.charAt(0).toUpperCase()+it.type.slice(1)}#{it.year ? ' ('+it.year+')' : ''}
+            p.card-text Rating: #{'★'.repeat(it.rating)}#{'☆'.repeat(5-it.rating)}
+            if it.note
+              p.card-text Note: #{it.note}
+            a.card-link(href="#") Edit
+            a.card-link(href="#") Delete
 
