@@ -1,5 +1,5 @@
 const mongoose = require('mongoose');
-mongoose.set('debug', true); // log queries
+mongoose.set('debug', true);
 mongoose.connection.once('open', () => {
   console.log('Connected DB name:', mongoose.connection.name);
 });
