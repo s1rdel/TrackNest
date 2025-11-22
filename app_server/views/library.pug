@@ -2,7 +2,7 @@ extends layout
 
 block content
   .d-flex.justify-content-between.align-items-center.mb-3
-    h1.mb-0 My Library
+    h1.mb-0 Best Application for music
     button.btn.btn-primary(type="button") + Add item
 
   .row.mb-3
@@ -14,16 +14,10 @@ block content
         option(value="track") Tracks
         option(value="album") Albums
         option(value="artist") Artists
-  .row
-    each it in items
-      .col-md-6.col-lg-4
-        .card
-          .card-body
-            h5.card-title= it.title
-            h6.card-subtitle.mb-2.text-muted #{it.artist} — #{it.type.charAt(0).toUpperCase()+it.type.slice(1)}#{it.year ? ' ('+it.year+')' : ''}
-            p.card-text Rating: #{'★'.repeat(it.rating)}#{'☆'.repeat(5-it.rating)}
-            if it.note
-              p.card-text Note: #{it.note}
-            a.card-link(href="#") Edit
-            a.card-link(href="#") Delete
 
+  .row
+    app-track-list Loading...
+
+block scripts
+  script(type="module" src="/polyfills-FFHMD2TL.js")
+  script(type="module" src="/main-GKRYE5OR.js")

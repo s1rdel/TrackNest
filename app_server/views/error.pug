@@ -1,0 +1,15 @@
+extends layout
+
+block content
+  h1 Error
+  if message
+    p.lead= message
+
+  if error && error.status
+    p Status: #{error.status}
+
+  if error && error.stack
+    h5 Details:
+    pre= error.stack
+  else
+    p Something went wrong. Try later please.

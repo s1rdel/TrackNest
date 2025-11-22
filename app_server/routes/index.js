@@ -1,11 +1,14 @@
 const express = require('express');
+const path = require('path');
 const router = express.Router();
-const pages = require('../controllers/pages');
 
-router.get('/', pages.library);
+const ctrlPages = require('../controllers/pages');
 
-router.get('/library', pages.library);
-router.get('/login', pages.login);
-router.get('/register', pages.register);
+router.get('/', ctrlPages.home);
+
+router.get('/login', ctrlPages.login);
+router.get('/register', ctrlPages.register);
+
+router.get('/library', ctrlPages.library);
 
 module.exports = router;
