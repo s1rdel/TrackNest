@@ -2,25 +2,60 @@ extends layout
 
 block content
   h1.mb-4 Register
+
+  if error
+    .alert.alert-danger= error
+
   .row
     .col-md-6
-      form
+      form(method="POST" action="/register")
         .mb-3
           label.form-label(for="name") Name
-          input#name.form-control(type="text" placeholder="Your name")
+          input#name.form-control(
+            type="text"
+            name="name"
+            placeholder="Your name"
+            required
+          )
+
         .mb-3
           label.form-label(for="phone") Phone
-          input#phone.form-control(type="tel" placeholder="+353 ...")
+          input#phone.form-control(
+            type="tel"
+            name="phone"
+            placeholder="+353 ..."
+          )
+
         .mb-3
           label.form-label(for="address") Address
-          input#address.form-control(type="text" placeholder="Street, City")
+          input#address.form-control(
+            type="text"
+            name="address"
+            placeholder="Street, City"
+          )
+
         .mb-3
           label.form-label(for="email") Email
-          input#email.form-control(type="email" placeholder="you@example.com")
+          input#email.form-control(
+            type="email"
+            name="email"
+            placeholder="you@example.com"
+            required
+          )
+
         .mb-3
           label.form-label(for="password") Password
-          input#password.form-control(type="password")
+          input#password.form-control(
+            type="password"
+            name="password"
+            required
+          )
+
         .mb-3
           label.form-label(for="confirm") Confirm password
-          input#confirm.form-control(type="password")
-        button.btn.btn-primary(type="button") Create account
+          input#confirm.form-control(
+            type="password"
+            name="confirm"
+          )
+
+        button.btn.btn-primary(type="submit") Create account

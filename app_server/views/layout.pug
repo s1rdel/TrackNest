@@ -38,10 +38,19 @@ html(lang="en")
           ul.navbar-nav.ms-auto
             li.nav-item
               a.nav-link(href="/library") Library
-            li.nav-item
-              a.nav-link(href="/login") Login
-            li.nav-item
-              a.nav-link(href="/register") Register
+            if currentUser 
+              li.nav-item
+                span.nav-link(style="cursor: default; color: #ccc;") 
+                  | Hello, &nbsp;
+                  = currentUser.name || currentUser.email
+              li.nav-item 
+                a.nav-link(href="/logout" style="font-weight:600; color:#ff7373;") Logout
+            else 
+              li.nav-item 
+                a.nav-link(href="/login") Login
+              li.nav-item
+                a.nav-link(href="/register") Register
+            
 
     main.container.mt-4
       block content
