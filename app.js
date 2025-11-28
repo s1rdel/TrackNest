@@ -1,5 +1,11 @@
 const createError = require('http-errors');
 const express = require('express');
+const fs = require('fs');
+const http = require('http');
+const https = require('https');
+const privateKey = fs.readFileSync('./sslcert/key.pem', 'utf8');
+const certificate = fs.readFileSync('./sslcert/cert.pem', 'utf8');
+const credentials = { key: privateKey, cert: certificate };
 const path = require('path');
 const cookieParser = require('cookie-parser');
 const logger = require('morgan');
@@ -73,6 +79,17 @@ app.use(function(err, req, res, next) {
 
   res.status(err.status || 500);
   res.render('error');
+});
+
+const httpServer = http.createServer(app);
+const httpsServer = https.createServer(credentials, app);
+
+httpServer.listen(8000, () => {
+  console.log("HTTP server running at http://localhost:8000");
+});
+
+httpsServer.listen(443, () => {
+  console.log("HTTPS server running at https://localhost:443");
 });
 
 module.exports = app;
