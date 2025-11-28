@@ -5,7 +5,7 @@ The goal of this project is to provide a personal music library where users can 
 
 Features
     User registration with name, phone, address, email, and password.
-    Login system (mocked for now, later secured with Passport.js).
+    Login system (secured with Passport.js).
     Library screen displaying a list of tracks, albums, and artists with:
     Ratings (★ 1–5)
     Personal notes
